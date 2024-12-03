@@ -1,10 +1,16 @@
-// app/layout.tsx
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle"
+import type { Metadata } from 'next'
 
 const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+  title: 'Clinical Trials Explorer',
+  description: 'Explore and search clinical trials with advanced filtering capabilities',
+  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0',
+}
 
 export default function RootLayout({
   children,
@@ -13,9 +19,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-      </head>
       <body className={`${inter.className} min-h-screen bg-background antialiased`}>
         <ThemeProvider
           attribute="class"
