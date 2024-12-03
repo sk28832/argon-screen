@@ -37,13 +37,9 @@ A modern web application for exploring and filtering clinical trials data with a
 ### Installation
 
 1. Clone the repository:
-```bash
-git clone [your-repository-url]
-```
 
 2. Install dependencies:
 ```bash
-cd clinical-trials-explorer
 yarn install
 ```
 
