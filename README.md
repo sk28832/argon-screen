@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clinical Trials Explorer
+
+A modern web application for exploring and filtering clinical trials data with advanced search capabilities.
+
+## Features
+
+- **Advanced Search**: Complex search queries with AND/OR operators
+  - Add multiple search terms
+  - Combine terms using AND/OR logic
+  - Real-time search results
+  - Edit operators between terms after adding them
+
+- **Comprehensive Filtering**:
+  - Filter by trial status
+  - Filter by study type
+  - Search by sponsor
+  - Combine multiple filter types
+
+- **Interactive Data Table**:
+  - Sortable columns
+  - Pagination
+  - Adjustable rows per page
+  - Direct links to trial details
+
+- **Responsive Design**:
+  - Works on desktop and mobile devices
+  - Mobile-friendly filter panel
+  - Adaptive layout
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (v18 or later recommended)
+- Yarn package manager
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [your-repository-url]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+cd clinical-trials-explorer
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-## Learn More
+## Usage Guide
 
-To learn more about Next.js, take a look at the following resources:
+### Search Functionality
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Basic Search**:
+   - Type your search term in the search bar
+   - Press Enter or click the + icon to add it to your search
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Complex Search**:
+   - Add multiple search terms
+   - Use the dropdown between terms to select AND/OR operators
+   - Edit operators at any time by clicking on them
+   - Remove terms by clicking the X icon
 
-## Deploy on Vercel
+3. **Filter Panel**:
+   - Use the left sidebar to filter by status or study type
+   - Search for specific sponsors
+   - View active filters at the bottom of the panel
+   - Clear all filters with one click
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Data Table
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Click column headers to sort
+- Use the pagination controls at the bottom
+- Adjust the number of rows displayed
+- Click on NCT numbers to view full trial details
+
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
+- TanStack Table
+
+## Local Development
+
+The application has hot reloading enabled. Any changes you make to the source files will be immediately reflected in the browser.
+
+To modify the source code:
+
+1. Pages are in `app/`
+2. Components are in `components/`
+3. Hooks and utilities are in `lib/`
+4. Common types are in `types/`
