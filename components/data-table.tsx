@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { StudyDialog } from "@/components/study-dialog"
+import { ClinicalTrial } from "@/types"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -32,6 +34,7 @@ export function DataTable<TData, TValue>({
   data,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
+  const [selectedStudy, setSelectedStudy] = useState<ClinicalTrial | null>(null)
   
   const table = useReactTable({
     data,
@@ -76,6 +79,8 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  onClick={() => setSelectedStudy(row.original as ClinicalTrial)}
+                  className="cursor-pointer hover:bg-muted/50"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="whitespace-nowrap">
@@ -138,6 +143,12 @@ export function DataTable<TData, TValue>({
           </Button>
         </div>
       </div>
+
+      <StudyDialog
+        study={selectedStudy}
+        open={!!selectedStudy}
+        onOpenChange={(open) => !open && setSelectedStudy(null)}
+      />
     </div>
   )
 }
