@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -73,32 +72,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Mobile Filter Sheet */}
-      <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="sm" className="lg:hidden">
-            <SlidersHorizontal className="h-4 w-4 mr-2" />
-            Filters
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-full max-w-xs p-0">
-          <SheetHeader className="px-6 py-4">
-            <SheetTitle>Filters</SheetTitle>
-            <SheetDescription>
-              Filter clinical trials by status, type, and sponsor
-            </SheetDescription>
-          </SheetHeader>
-          <FilterPanel
-            filters={filters}
-            updateFilters={updateFilters}
-            clearFilters={clearFilters}
-            stats={stats}
-            className="px-6 py-4"
-            isMobile
-          />
-        </SheetContent>
-      </Sheet>
-
       <div className="flex flex-col lg:flex-row min-h-screen">
         {/* Desktop Filter Panel */}
         <FilterPanel
@@ -123,16 +96,37 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* Mobile Filter Button */}
+                {/* Mobile Filter Button and Sheet */}
                 <div className="lg:hidden">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setIsMobileFilterOpen(true)}
-                  >
-                    <SlidersHorizontal className="h-4 w-4 mr-2" />
-                    Filters
-                  </Button>
+                  <Sheet open={isMobileFilterOpen} onOpenChange={setIsMobileFilterOpen}>
+                    <SheetTrigger asChild>
+                      <span className="hidden" />
+                    </SheetTrigger>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setIsMobileFilterOpen(true)}
+                    >
+                      <SlidersHorizontal className="h-4 w-4 mr-2" />
+                      Filters
+                    </Button>
+                    <SheetContent side="left" className="w-full max-w-xs p-0">
+                      <SheetHeader className="px-6 py-4">
+                        <SheetTitle>Filters</SheetTitle>
+                        <SheetDescription>
+                          Filter clinical trials by status, type, and sponsor
+                        </SheetDescription>
+                      </SheetHeader>
+                      <FilterPanel
+                        filters={filters}
+                        updateFilters={updateFilters}
+                        clearFilters={clearFilters}
+                        stats={stats}
+                        className="px-6 py-4"
+                        isMobile
+                      />
+                    </SheetContent>
+                  </Sheet>
                 </div>
               </div>
 

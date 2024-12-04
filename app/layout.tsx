@@ -27,9 +27,18 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
-            <div className="fixed right-4 top-4 z-50">
+            {/* Mobile Header */}
+            <header className="lg:hidden sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+              <div className="flex h-14 items-center justify-end px-4">
+                <ModeToggle />
+              </div>
+            </header>
+            
+            {/* Desktop Mode Toggle */}
+            <div className="hidden lg:block fixed right-4 top-4 z-50">
               <ModeToggle />
             </div>
+            
             <main className="flex-1">
               {children}
             </main>
