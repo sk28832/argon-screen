@@ -1,3 +1,5 @@
+
+// app/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,6 +13,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { SlidersHorizontal } from "lucide-react";
+import { Analytics } from "@/components/analytics-dashboard";
 import {
   Sheet,
   SheetContent,
@@ -141,6 +144,14 @@ export default function Home() {
                 }
                 className="w-full max-w-2xl"
               />
+
+              {/* Analytics Dashboard */}
+              <div className="mb-6">
+                <Analytics 
+                  trials={trials}
+                  isLoading={isLoading}
+                />
+              </div>
 
               <div className="overflow-auto">
                 <DataTable columns={columns} data={trials} />
