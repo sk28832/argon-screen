@@ -6,7 +6,7 @@ import { Checkbox } from "./ui/checkbox"
 import { ScrollArea } from "./ui/scroll-area"
 import { Input } from "./ui/input"
 import { formatStatus, formatStudyType } from "@/lib/format"
-import { SearchTerm, TrialFilters } from "@/types"
+import { TrialFilters } from "@/types"
 
 interface FilterPanelProps {
   filters: TrialFilters

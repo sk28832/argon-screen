@@ -50,9 +50,13 @@ export const columns: ColumnDef<ClinicalTrial>[] = [
     header: "Status",
     cell: ({ row }) => {
       const status = row.getValue("study_status") as string
-      const { background, text } = getStatusColor(status)
+      const variantKey = status.toLowerCase().replace(/_/g, '-') as any
+      
       return (
-        <Badge className={`${background} ${text} whitespace-normal text-center h-auto py-1`} variant="secondary">
+        <Badge 
+          variant={variantKey}
+          className="whitespace-normal text-center h-auto py-1"
+        >
           {formatStatus(status)}
         </Badge>
       )
@@ -108,9 +112,10 @@ export const columns: ColumnDef<ClinicalTrial>[] = [
     header: "Type",
     cell: ({ row }) => {
       const type = row.getValue("study_type") as string
-      const { background, text } = getStudyTypeColor(type)
+      const variantKey = type.toLowerCase() as any
+      
       return (
-        <Badge className={`${background} ${text}`} variant="secondary">
+        <Badge variant={variantKey}>
           {formatStudyType(type)}
         </Badge>
       )
