@@ -1,4 +1,4 @@
-// lib/utils/format.ts
+// lib/format.ts
 export function formatStatus(status: string): string {
     return status
       .toLowerCase()

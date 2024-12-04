@@ -83,9 +83,16 @@ export function DataTable<TData, TValue>({
                   className="cursor-pointer hover:bg-muted/50"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="whitespace-nowrap">
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
+                    <TableCell 
+                    key={cell.id} 
+                    style={{ 
+                      width: cell.column.getSize(),
+                      maxWidth: cell.column.getSize(),
+                    }}
+                    className="whitespace-nowrap overflow-hidden"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
                   ))}
                 </TableRow>
               ))
