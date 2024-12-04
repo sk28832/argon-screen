@@ -1,3 +1,4 @@
+// components/study-dialog.tsx
 import {
     Dialog,
     DialogContent,
@@ -28,7 +29,7 @@ import {
     const InfoSection = ({ title, content }: { title: string; content: string }) => (
       <div className="space-y-1.5">
         <h3 className="text-sm font-medium leading-none">{title}</h3>
-        <p className="text-sm text-muted-foreground">{content}</p>
+        <p className="text-sm text-muted-foreground">{content.replace(/\|/g, ', ')}</p>
       </div>
     )
   
@@ -57,22 +58,13 @@ import {
             <div className="space-y-6 py-4">
               <div className="flex flex-wrap gap-2">
                 <Badge 
-                  className={cn(
-                    statusColors.background,
-                    statusColors.text,
-                    `hover:${statusColors.background}`,
-                    "border-0"
-                  )}
+                  variant={study.study_status.toLowerCase().replace(/_/g, '-') as any}
+                  className="whitespace-normal text-center h-auto py-1"
                 >
                   {formatStatus(study.study_status)}
                 </Badge>
                 <Badge 
-                  className={cn(
-                    typeColors.background,
-                    typeColors.text,
-                    `hover:${typeColors.background}`,
-                    "border-0"
-                  )}
+                  variant={study.study_type.toLowerCase() as any}
                 >
                   {formatStudyType(study.study_type)}
                 </Badge>

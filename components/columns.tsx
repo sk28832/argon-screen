@@ -2,7 +2,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { ClinicalTrial } from "@/types"
 import { Badge } from "@/components/ui/badge"
-import { formatStatus, getStatusColor, formatStudyType, getStudyTypeColor } from "@/lib/format"
+import { formatStatus, formatStudyType } from "@/lib/format"
 import { Tooltip } from "@/components/ui/tooltip"
 import { TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
@@ -73,11 +73,11 @@ export const columns: ColumnDef<ClinicalTrial>[] = [
           <Tooltip>
             <TooltipTrigger asChild>
               <div className="max-w-[200px] truncate">
-                {conditions}
+                {conditions.replace(/\|/g, ', ')}
               </div>
             </TooltipTrigger>
             <TooltipContent side="bottom" className="max-w-[400px]">
-              <p className="text-sm">{conditions}</p>
+              <p className="text-sm">{conditions.replace(/\|/g, ', ')}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
